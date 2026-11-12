@@ -3,9 +3,9 @@ package employee;
 import java.time.LocalTime;
 
 public class Employee {
-    private String name;
-    private int hoursWorked;
-    private int startTime;
+    String name;
+    int hoursWorked;
+    int startTime;
 
     public Employee(String name) {
         this.name = name;
@@ -16,7 +16,7 @@ public class Employee {
     }
 
     public void punchIn(int hour) {
-        System.out.println("hey, " + this.name + "punched in at: " + hour);
+        System.out.println("Hey, " + this.name + "punched in at: " + hour);
         this.startTime = hour;
     }
 
@@ -24,10 +24,15 @@ public class Employee {
         LocalTime rightNow = LocalTime.now();
         int hour = rightNow.getHour();
 
+        this.startTime = hour;
     }
 
     public void punchOut() {
+        LocalTime rightNow = LocalTime.now();
+        int outTime = rightNow.getHour();
 
+        int hoursToday = outTime - this.startTime;
+        this.hoursWorked = this.hoursWorked + hoursToday;
     }
 
     public void setName(String name) {

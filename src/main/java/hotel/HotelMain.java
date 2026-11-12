@@ -1,5 +1,7 @@
 package hotel;
 
+import employee.Employee;
+
 public class HotelMain {
 
 
